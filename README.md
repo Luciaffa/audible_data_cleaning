@@ -46,9 +46,6 @@ For this data cleaning project focused on Audible.in data, I utilized the follow
 | Thornwood                                 | Writtenby:LeahCypess                         | Narratedby:JessicaAlmasy                 | 5 hrs and 41 mins  | 05-04-22     | English  | Not rated yet              | 904|
 | 7 histoires d'aventures !                 | Writtenby:BertrandFichou,NoraThullin | Narratedby:GuyChappelier,FrédéricSanchez | 43 mins | 11-02-22 | french   | Not rated yet              | 679.00|
 | Le Loup qui devenait chef de la forêt     | Writtenby:OrianneLallemand                   | Narratedby:WillProduction                | 9 mins             | 01-04-22     | french   | Not rated yet              | 112|
-| Curse of the Robo-Dragon                  | Writtenby:AdamBlade                          | Narratedby:TheoSolomon                   | 2 hrs and 6 mins   | 01-04-22     | English  | Not rated yet              | 531|
-| Call of the Crow                          | Writtenby:JessicaKhoury                      | Narratedby:MichaelGallagher,EmilyEiden   | 9 hrs and 30 mins  | 05-04-22     | English  | Not rated yet              | 586|
-| Glass Slippers                            | Writtenby:LeahCypess                         | Narratedby:KeylorLeigh                   | 5 hrs and 38 mins  | 05-04-22     | English  | Not rated yet              | 904|
 <!-- End of table -->
 
 
