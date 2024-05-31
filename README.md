@@ -12,11 +12,24 @@ For this data cleaning project focused on Audible.in data, I utilized the follow
 - **Microsoft SQL Server Management Studio (SSMS):** My primary environment for managing the database, executing SQL queries, and performing data cleaning tasks.
 - **GitHub:** Essential for version control, sharing my SQL scripts used for data cleaning, and facilitating collaboration on the project.
 
+# About the Dataset
 
+**Schema**
+
+| Column Name | Data Type |
+|-------------|------------|
+| name        | varchar    |
+| author      | varchar    |
+| narrator    | varchar    |
+| time        | varchar    |
+| releasedate | varchar    |
+| language    | varchar    |
+| stars       | varchar    |
+| price       | float      |
+<!-- End of table -->
 **Dataset sample**
 
-
-| Name                                      | Author                                       | Narrator                                 | Time               | Release Date | Language | Stars                      | Price |
+| name                                      | author                                       | narrator                                 | time               | releasedate | language | stars                      | price |
 |-------------------------------------------|----------------------------------------------|------------------------------------------|--------------------|--------------|----------|----------------------------|-------|
 | The Dragonet Prophecy                     | Writtenby:TuiT.Sutherland                    | Narratedby:ShannonMcManus                | 8 hrs and 32 mins  | 01-07-12     | English  | 5 out of 5 stars11 ratings | 820|
 | Dangerous Gift                            | Writtenby:TuiT.Sutherland                    | Narratedby:ShannonMcManus                | 7 hrs and 51 mins  | 02-03-21     | English  | 5 out of 5 stars9 ratings  | 445|
@@ -36,24 +49,12 @@ For this data cleaning project focused on Audible.in data, I utilized the follow
 | Curse of the Robo-Dragon                  | Writtenby:AdamBlade                          | Narratedby:TheoSolomon                   | 2 hrs and 6 mins   | 01-04-22     | English  | Not rated yet              | 531|
 | Call of the Crow                          | Writtenby:JessicaKhoury                      | Narratedby:MichaelGallagher,EmilyEiden   | 9 hrs and 30 mins  | 05-04-22     | English  | Not rated yet              | 586|
 | Glass Slippers                            | Writtenby:LeahCypess                         | Narratedby:KeylorLeigh                   | 5 hrs and 38 mins  | 05-04-22     | English  | Not rated yet              | 904|
-
-**Schema**
-
-| Column Name | Data Type |
-|-------------|------------|
-| name        | varchar    |
-| author      | varchar    |
-| narrator    | varchar    |
-| time        | varchar    |
-| releasedate | varchar    |
-| language    | varchar    |
-| stars       | varchar    |
-| price       | float      |
-
+<!-- End of table -->
 
 
 # What are the data quality improvements needed?
-Based on a preliminary analysis there are some key problems I must address, some of which can be seen in the data sample above.
+
+Based on a preliminary analysis there are some key problems and possible issues I must address, some of which can be seen in the data sample above.
 1. Check for duplicate and null/blank values.
 2. Remove the unnecessary "Writtenby:" from the 'Author' column.
 3. Remove the unncessary ¨Narratedby:¨ from the 'Narrator' column.
