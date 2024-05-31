@@ -28,9 +28,20 @@ The data source for this project include an Audible dataset obtained from Kaggle
 | Call of the Crow                          | Writtenby:JessicaKhoury                      | Narratedby:MichaelGallagher,EmilyEiden   | 9 hrs and 30 mins  | 05-04-22     | English  | Not rated yet              | 586|
 | Glass Slippers                            | Writtenby:LeahCypess                         | Narratedby:KeylorLeigh                   | 5 hrs and 38 mins  | 05-04-22     | English  | Not rated yet              | 904|
 
-<!--End of table-->
+**Schema**
 
-ADD DATA TYPES OF COLUMNS HERE
+| Column Name | Data Type |
+|-------------|------------|
+| name        | varchar    |
+| author      | varchar    |
+| narrator    | varchar    |
+| time        | varchar    |
+| releasedate | varchar    |
+| language    | varchar    |
+| stars       | varchar    |
+| price       | float      |
+
+
 
 # What are the data quality improvements needed?
 Based on a preliminary analysis there are some key problems I must address, some of which can be seen in the data sample above.
