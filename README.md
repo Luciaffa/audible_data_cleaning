@@ -40,7 +40,7 @@ For this data cleaning project focused on Audible.in data, I utilized the follow
 | Barnabas der Wolkenschaufler              | Writtenby:SophieSchoenwald    | Narratedby:BerndReheuser           | 2 hrs and 56 mins  | 04-04-22     | german   | Not rated yet              | 200.00|
 | The Boy in the Post                       | Writtenby:HollyRivers                        | Narratedby:SusieTrayling                 | 6 hrs and 58 mins  | 01-04-22     | English  | Not rated yet              | 706|
 | Thornwood                                 | Writtenby:LeahCypess                         | Narratedby:JessicaAlmasy                 | 5 hrs and 41 mins  | 05-04-22     | English  | Not rated yet              | 904|
-| 7 histoires d'aventures !                 | Writtenby:BertrandFichou,NoraThullin | Narratedby:GuyChappelier,FrédéricSanchez | 43 mins | 11-02-22 | french   | Not rated yet              | 679.00|
+| 7 histoires d'aventures !                 | Writtenby:BertrandFichou,NoraThullin | Narratedby:GuyChappelier,FrédéricSanchez | 43 mins | 11-02-22 | french   | Not rated yet              | 679|
 | Le Loup qui devenait chef de la forêt     | Writtenby:OrianneLallemand                   | Narratedby:WillProduction                | 9 mins             | 01-04-22     | french   | Not rated yet              | 112|
 <!-- End of table -->
 
