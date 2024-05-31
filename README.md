@@ -30,4 +30,13 @@ The data source for this project include an Audible dataset obtained from Kaggle
 
 <!--End of table-->
 
+ADD DATA TYPES OF COLUMNS HERE
+
 # What are the data quality improvements needed?
+Based on a preliminary analysis there are some key problems I must address, some of which can be seen in the data sample above.
+1. Check for duplicate and null/blank values.
+2. Remove the unnecessary "Writtenby:" from the 'Author' column.
+3. Remove the unncessary ¨Narratedby:¨ from the 'Narrator' column.
+4. Separate the author's name and last name from the 'Author' column.
+5. Split the 'stars' values into two columns, "stars" and "Number of Ratings¨.
+6. Address the inconsistencies in the 'Language' column, as languages other than English are not capitalized. 
