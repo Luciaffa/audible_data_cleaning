@@ -31,10 +31,6 @@ For this data cleaning project focused on Audible.in data, I utilized the follow
 
 | name                                      | author                                       | narrator                                 | time               | releasedate | language | stars                      | price |
 |-------------------------------------------|----------------------------------------------|------------------------------------------|--------------------|--------------|----------|----------------------------|-------|
-| The Dragonet Prophecy                     | Writtenby:TuiT.Sutherland                    | Narratedby:ShannonMcManus                | 8 hrs and 32 mins  | 01-07-12     | English  | 5 out of 5 stars11 ratings | 820|
-| Dangerous Gift                            | Writtenby:TuiT.Sutherland                    | Narratedby:ShannonMcManus                | 7 hrs and 51 mins  | 02-03-21     | English  | 5 out of 5 stars9 ratings  | 445|
-| "The 39 Clues, Book 6"                    | Writtenby:JudeWatson                         | Narratedby:DavidPittu                    | 5 hrs and 10 mins  | 06-11-09     | English  | 5 out of 5 stars4 ratings  | 468|
-| Never Say Genius                          | Writtenby:DanGutman                          | Narratedby:MichaelGoldstrom              | 5 hrs and 27 mins  | 23-08-13     | English  | 5 out of 5 stars8 ratings  | 585|
 | The Madman of Black Bear Mountain         | Writtenby:FranklinW.Dixon                    | Narratedby:TimGregory                    | 2 hrs and 54 mins  | 07-06-16     | English  | 5 out of 5 stars3 ratings  | 305|
 | Unicorn Academy: Zara and Moonbeam        | Writtenby:JulieSykes                         | Narratedby:KristinAtherton               | 1 hr and 35 mins   | 10-03-22     | English  | Not rated yet              | 266|
 | El fantasma de la bodega                  | Writtenby:FranciscoDíazValladares            | Narratedby:NuriaSamsó                    | 2 hrs and 23 mins  | 04-04-22     | spanish  | Not rated yet              | 192|
