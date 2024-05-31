@@ -4,6 +4,15 @@ In this project, I explore techniques for cleaning and transforming data using S
 # Background
 The data source for this project include an Audible dataset obtained from Kaggle. This dataset contains information about audiobooks available on Audible.in, providing details such as book titles, authors, genres, ratings, and more. By applying data cleaning techniques, I aim to transform raw, unstructured data into a clean and usable format, ready for further analysis or integration into other systems.
 
+# Tools I Used
+
+For this data cleaning project focused on Audible.in data, I utilized the following key tools:
+
+- **SQL:** The backbone of my data cleaning process, enabling me to manipulate and clean the data directly within the database.
+- **Microsoft SQL Server Management Studio (SSMS):** My primary environment for managing the database, executing SQL queries, and performing data cleaning tasks.
+- **GitHub:** Essential for version control, sharing my SQL scripts used for data cleaning, and facilitating collaboration on the project.
+
+
 **Dataset sample**
 
 
