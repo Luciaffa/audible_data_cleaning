@@ -6,7 +6,6 @@ The data source for this project include an Audible dataset obtained from Kaggle
 
 **Dataset sample**
 
-[![Screenshot-2024-05-31-174640.png](https://i.postimg.cc/FH5zfp9L/Screenshot-2024-05-31-174640.png)](https://postimg.cc/6yctgd4W)
 
 | Name                                      | Author                                       | Narrator                                 | Time               | Release Date | Language | Stars                      | Price |
 |-------------------------------------------|----------------------------------------------|------------------------------------------|--------------------|--------------|----------|----------------------------|-------|
