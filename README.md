@@ -6,6 +6,6 @@ The data source for this project include an Audible dataset obtained from Kaggle
 
 **Dataset sample**
 
-[![Screenshot-2024-05-31-173804.png](https://i.postimg.cc/440mGZqw/Screenshot-2024-05-31-173804.png)](https://postimg.cc/grvYq9Y6)
+[![Screenshot-2024-05-31-174640.png](https://i.postimg.cc/FH5zfp9L/Screenshot-2024-05-31-174640.png)](https://postimg.cc/6yctgd4W)
 
 # What are the data quality improvements needed?
