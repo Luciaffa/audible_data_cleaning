@@ -74,8 +74,145 @@ WHERE name IS NULL OR name = ''
  ```
 *Query returned 338 rows that had a NULL value in the 'price' column, I will not be deleting these rows since the NULL values can be handled during the analysis process.*
 
-3. Remove the unnecessary "Writtenby:" from the 'Author' column.
-4. Remove the unncessary ¨Narratedby:¨ from the 'Narrator' column.
-5. Separate the author's name and last name from the 'Author' column.
+2. Remove the unnecessary "Writtenby:" from the 'Author' column.
+```sql
+UPDATE audible_uncleaned
+SET author = SUBSTRING(author, 11, LEN(author) - 10)
+```
+3. Remove the unncessary ¨Narratedby:¨ from the 'Narrator' column.
+```sql
+UPDATE audible_uncleaned
+SET narrator = SUBSTRING(narrator, 12, LEN(narrator) - 11)
+```
+4. Separate the author's name and last name from the 'Author' column.
+I used these queries to separate the first name and last name from the author and narrator columns, by introducing a space before each capital letter (not including the first letter of each name). In order to update the database, this step requieres the creation of a temporary table in order to populate it with a CTE that introduces the spaces before the capital letter and then drop that table.
+
+**Author column:**
+```sql
+	CREATE TABLE #TempFormattedAuthors (
+    author VARCHAR(MAX),
+    formatted_author VARCHAR(MAX)
+);
+
+;WITH RecursiveCTE AS (
+    SELECT 
+        author,
+        SUBSTRING(author, 1, 1) AS author_first_letter,
+        2 AS position
+    FROM 
+        audible_uncleaned
+    UNION ALL
+    SELECT 
+        author,
+        author_first_letter + 
+            CASE 
+                WHEN ASCII(SUBSTRING(author, position, 1)) BETWEEN 65 AND 90 THEN ' ' + SUBSTRING(author, position, 1)
+                ELSE SUBSTRING(author, position, 1)
+            END,
+        position + 1
+    FROM 
+        RecursiveCTE
+    WHERE 
+        position <= LEN(author)
+)
+INSERT INTO #TempFormattedAuthors (author, formatted_author)
+SELECT 
+    author,
+    author_first_letter
+FROM 
+    RecursiveCTE
+WHERE 
+    position > LEN(author);
+
+UPDATE audible_uncleaned
+SET 
+    author = tfa.formatted_author
+FROM 
+    audible_uncleaned au
+JOIN 
+    #TempFormattedAuthors tfa ON au.author = tfa.author;
+
+DROP TABLE #TempFormattedAuthors;
+```
+
+**Narrator column:**
+```sql
+CREATE TABLE #TempFormattedNarrators (
+    narrator VARCHAR(MAX),
+    formatted_narrator VARCHAR(MAX)
+	);
+;WITH RecursiveCTE AS (
+    SELECT 
+        narrator,
+        SUBSTRING(narrator, 1, 1) AS narrator_first_letter,
+        2 AS position
+    FROM 
+        audible_uncleaned
+    UNION ALL
+    SELECT 
+        narrator,
+        narrator_first_letter + 
+            CASE 
+                WHEN ASCII(SUBSTRING(narrator, position, 1)) BETWEEN 65 AND 90 THEN ' ' + SUBSTRING(narrator, position, 1)
+                ELSE SUBSTRING(narrator, position, 1)
+            END,
+        position + 1
+    FROM 
+        RecursiveCTE
+    WHERE 
+        position <= LEN(narrator)
+)
+
+INSERT INTO #TempFormattedNarrators (narrator, formatted_narrator)
+SELECT 
+    narrator,
+    narrator_first_letter
+FROM 
+    RecursiveCTE
+WHERE 
+    position > LEN(narrator)
+	OPTION (MAXRECURSION 200);
+
+UPDATE audible_uncleaned
+SET 
+    narrator = tfn.formatted_narrator
+FROM 
+    audible_uncleaned au
+JOIN 
+    #TempFormattedNarrators tfn ON au.narrator = tfn.narrator;
+
+DROP TABLE #TempFormattedNarrators;
+```
+5. I changed the releasedate column from a VARCHAR(MAX) data type to a DATE data type. This modification allows for advanced analyses, such as time series analysis, date arithmatic and date-part analysis.
+```sql
+UPDATE audible_uncleaned
+SET releasedate_new = CONVERT(DATE, releasedate, 3);
+
+ALTER TABLE audible_uncleaned DROP COLUMN releasedate;
+
+EXEC sp_rename 'audible_uncleaned.releasedate_new', 'releasedate', 'COLUMN';
+```
+
 6. Split the 'stars' values into two columns, "stars" and "Number of Ratings¨.
-7. Address the inconsistencies in the 'Language' column, as languages other than English are not capitalized. 
+I fixed the stars column by separating the star rating and the number of ratings into their own columns. I dropped the string values to facilitate easier computational queries on the new columns.
+```sql
+ALTER TABLE audible_uncleaned
+ADD star_rating FLOAT, number_of_ratings INT;
+
+UPDATE audible_uncleaned
+SET star_rating = 
+    CASE
+        WHEN CHARINDEX('out of 5 stars', stars) > 0 
+        THEN CAST(SUBSTRING(stars, 1, CHARINDEX('out of 5 stars', stars) - 1) AS FLOAT)
+        ELSE NULL
+    END, 
+    number_of_ratings = 
+    CASE
+        WHEN CHARINDEX('rating', stars) > 0 
+THEN CAST(REPLACE(SUBSTRING(stars, CHARINDEX('stars', stars) + 5, CHARINDEX('rating', stars) - CHARINDEX('stars', stars) - 5), ',', '') AS INT)
+ELSE NULL
+    END
+
+ALTER TABLE audible_uncleaned DROP COLUMN stars;
+```
+8. Address the inconsistencies in the 'Language' column, as languages other than English are not capitalized. 
