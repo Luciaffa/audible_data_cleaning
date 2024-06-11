@@ -49,8 +49,15 @@ For this data cleaning project focused on Audible.in data, I utilized the follow
 
 Based on a preliminary analysis there are some key problems and possible issues I must address, some of which can be seen in the data sample above.
 1. Check for duplicate and null/blank values.
-2. Remove the unnecessary "Writtenby:" from the 'Author' column.
-3. Remove the unncessary ¨Narratedby:¨ from the 'Narrator' column.
-4. Separate the author's name and last name from the 'Author' column.
-5. Split the 'stars' values into two columns, "stars" and "Number of Ratings¨.
-6. Address the inconsistencies in the 'Language' column, as languages other than English are not capitalized. 
+   ##Find duplicate values
+   ```
+SELECT name, author, narrator, time, releasedate, language, stars, price, COUNT(*)
+FROM audible_uncleaned
+GROUP BY name, author, narrator, time, releasedate, language, stars, price
+HAVING COUNT(*) > 1;
+```
+3. Remove the unnecessary "Writtenby:" from the 'Author' column.
+4. Remove the unncessary ¨Narratedby:¨ from the 'Narrator' column.
+5. Separate the author's name and last name from the 'Author' column.
+6. Split the 'stars' values into two columns, "stars" and "Number of Ratings¨.
+7. Address the inconsistencies in the 'Language' column, as languages other than English are not capitalized. 
