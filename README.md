@@ -50,12 +50,12 @@ For this data cleaning project focused on Audible.in data, I utilized the follow
 Based on a preliminary analysis there are some key problems and possible issues I must address, some of which can be seen in the data sample above.
 1. Check for duplicate and null/blank values.
    ##Find duplicate values
-   ```
+```sql
 SELECT name, author, narrator, time, releasedate, language, stars, price, COUNT(*)
 FROM audible_uncleaned
 GROUP BY name, author, narrator, time, releasedate, language, stars, price
 HAVING COUNT(*) > 1;
-```
+
 3. Remove the unnecessary "Writtenby:" from the 'Author' column.
 4. Remove the unncessary ¨Narratedby:¨ from the 'Narrator' column.
 5. Separate the author's name and last name from the 'Author' column.
