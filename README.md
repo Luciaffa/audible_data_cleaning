@@ -48,13 +48,31 @@ For this data cleaning project focused on Audible.in data, I utilized the follow
 # What are the data quality improvements needed?
 
 Based on a preliminary analysis there are some key problems and possible issues I must address, some of which can be seen in the data sample above.
+
 1. Check for duplicate and null/blank values.
-   ##Find duplicate values
+- Find duplicate values
 ```sql
 SELECT name, author, narrator, time, releasedate, language, stars, price, COUNT(*)
 FROM audible_uncleaned
 GROUP BY name, author, narrator, time, releasedate, language, stars, price
 HAVING COUNT(*) > 1;
+ ```
+*Output: No duplicate values found*
+
+- Find NULL or blank values
+```sql
+SELECT *
+FROM audible_uncleaned
+WHERE name IS NULL OR name = ''
+   OR author IS NULL OR author = ''
+   OR narrator IS NULL OR narrator = ''
+   OR time IS NULL OR time = ''
+   OR releasedate IS NULL OR releasedate = ''
+   OR language IS NULL OR language = ''
+   OR stars IS NULL OR stars = ''
+   OR price IS NULL OR price = '';
+ ```
+*Query returned 338 rows that had a NULL value in the 'price' column, I will not be deleting these rows since the NULL values can be handled during the analysis process.*
 
 3. Remove the unnecessary "Writtenby:" from the 'Author' column.
 4. Remove the unncessary ¨Narratedby:¨ from the 'Narrator' column.
