@@ -85,6 +85,7 @@ UPDATE audible_uncleaned
 SET narrator = SUBSTRING(narrator, 12, LEN(narrator) - 11)
 ```
 4. Separate the author's name and last name from the 'Author' column.
+   
 I used these queries to separate the first name and last name from the author and narrator columns, by introducing a space before each capital letter (not including the first letter of each name). In order to update the database, this step requieres the creation of a temporary table in order to populate it with a CTE that introduces the spaces before the capital letter and then drop that table.
 
 **Author column:**
@@ -194,6 +195,7 @@ EXEC sp_rename 'audible_uncleaned.releasedate_new', 'releasedate', 'COLUMN';
 ```
 
 6. Split the 'stars' values into two columns, "stars" and "Number of Ratings¨.
+
 I fixed the stars column by separating the star rating and the number of ratings into their own columns. I dropped the string values to facilitate easier computational queries on the new columns.
 ```sql
 ALTER TABLE audible_uncleaned
@@ -203,13 +205,13 @@ UPDATE audible_uncleaned
 SET star_rating = 
     CASE
         WHEN CHARINDEX('out of 5 stars', stars) > 0 
-        THEN CAST(SUBSTRING(stars, 1, CHARINDEX('out of 5 stars', stars) - 1) AS FLOAT)
+        THEN SUBSTRING(stars, 1, CHARINDEX('out of 5 stars', stars) - 1) 
         ELSE NULL
     END, 
     number_of_ratings = 
     CASE
         WHEN CHARINDEX('rating', stars) > 0 
-THEN CAST(REPLACE(SUBSTRING(stars, CHARINDEX('stars', stars) + 5, CHARINDEX('rating', stars) - CHARINDEX('stars', stars) - 5), ',', '') AS INT)
+THEN (SUBSTRING(stars, CHARINDEX('stars', stars) + 5, CHARINDEX('rating', stars) - CHARINDEX('stars', stars) - 5)
 ELSE NULL
     END
 
