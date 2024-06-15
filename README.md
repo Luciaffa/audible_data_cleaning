@@ -29,7 +29,8 @@ For this data cleaning project focused on Audible.in data, I utilized the follow
 <!-- End of table -->
 **Dataset sample**
 
-![Dataset Screenshot](https://flic.kr/ps/44vQhp)
+![Datasetscreenshot](https://live.staticflickr.com/65535/53793789379_f174372d81_z.jpg)
+
 
 
 ## What are the data quality improvements needed?
