@@ -29,7 +29,7 @@ For this data cleaning project focused on Audible.in data, I utilized the follow
 <!-- End of table -->
 **Dataset sample**
 
-![Dataset Screenshot](https://photos.google.com/share/AF1QipMoqfcjpVMxSAnXXzDuGU-P4-2RqlSHjcWf4Laywb4zdDIbBZk6pQ40ntAAgDG92A/photo/AF1QipP71OSYbHxmog46vh8PNP_Tu6saT-Gl015LoyEW?key=T2Q5X0pGVERZdlFmQTgwb0M5QTNNVTZlLXRIbUtB)
+![Dataset Screenshot](https://flic.kr/ps/44vQhp)
 
 
 ## What are the data quality improvements needed?
@@ -68,7 +68,7 @@ WHERE name IS NULL OR name = ''
    OR stars IS NULL OR stars = ''
    OR price IS NULL OR price = '';
  ```
-*Query returned 338 rows that had a NULL value in the 'price' column, I will not be deleting these rows since the NULL values can be handled during the analysis process.*
+*Output: Query returned 338 rows that had a NULL value in the 'price' column, I will not be deleting these rows since the NULL values can be handled during the analysis process.*
 
 ### Remove the unnecessary "Writtenby:" from the 'Author' column.
 ```sql
