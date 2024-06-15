@@ -45,7 +45,7 @@ For this data cleaning project focused on Audible.in data, I utilized the follow
 <!-- End of table -->
 
 
-# What are the data quality improvements needed?
+## What are the data quality improvements needed?
 
 Based on a preliminary analysis there are some key problems and possible issues I must address, some of which can be seen in the data sample above.
 
