@@ -39,12 +39,12 @@ For this data cleaning project focused on Audible.in data, I utilized the follow
 Based on a preliminary analysis there are some key problems and possible issues I must address, some of which can be seen in the data sample above.
 
 1. Check for duplicate and null/blank values.
-2. Remove the unnecessary "Writtenby:" from the 'Author' column.
-3. Remove the unncessary ¨Narratedby:¨ from the 'Narrator' column.
-4. Separate the author's name and last name from the 'Author' column.
+2. Remove the unnecessary "Writtenby:" from the 'author' column.
+3. Remove the unncessary ¨Narratedby:¨ from the 'narrator' column.
+4. Separate the author's name and last name from the 'author' and 'narrator' columns.
 5. Change the releasedate column from a VARCHAR(MAX) data type to a DATE data type.
-6. Split the 'stars' values into two columns, "stars" and "Number of Ratings¨.
-7. Address the inconsistencies in the 'Language' column, as languages other than English are not capitalized.
+6. Split the 'stars' values into two columns, "stars" and "number of ratings¨.
+7. Address the inconsistencies in the 'language' column, as languages other than English are not capitalized.
 
 
 ### Check for duplicate and null/blank values.
@@ -88,7 +88,7 @@ I used these queries to separate the first name and last name from the author an
 
 **Author column:**
 ```sql
-	CREATE TABLE #TempFormattedAuthors (
+CREATE TABLE #TempFormattedAuthors (
     author VARCHAR(MAX),
     formatted_author VARCHAR(MAX)
 );
@@ -215,7 +215,7 @@ ELSE NULL
 
 ALTER TABLE audible_uncleaned DROP COLUMN stars;
 ```
-### Address the inconsistencies in the 'Language' column, as languages other than English are not capitalized. 
+### Address the inconsistencies in the 'language' column, as languages other than English are not capitalized. 
 I chose to use a query that would capitalize the first letter of the whole column to inconsistencies, ensuring all language names are correctly formatted.
 ```sql
 UPDATE audible_uncleaned
