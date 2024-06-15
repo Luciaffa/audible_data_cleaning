@@ -29,20 +29,7 @@ For this data cleaning project focused on Audible.in data, I utilized the follow
 <!-- End of table -->
 **Dataset sample**
 
-| name                                      | author                                       | narrator                                 | time               | releasedate | language | stars                      | price |
-|-------------------------------------------|----------------------------------------------|------------------------------------------|--------------------|--------------|----------|----------------------------|-------|
-| The Madman of Black Bear Mountain         | Writtenby:FranklinW.Dixon                    | Narratedby:TimGregory                    | 2 hrs and 54 mins  | 07-06-16     | English  | 5 out of 5 stars3 ratings  | 305|
-| Unicorn Academy: Zara and Moonbeam        | Writtenby:JulieSykes                         | Narratedby:KristinAtherton               | 1 hr and 35 mins   | 10-03-22     | English  | Not rated yet              | 266|
-| El fantasma de la bodega                  | Writtenby:FranciscoDíazValladares            | Narratedby:NuriaSamsó                    | 2 hrs and 23 mins  | 04-04-22     | spanish  | Not rated yet              | 192|
-| El paseo encantado                        | Writtenby:Mattel                             | Narratedby:VanessaPérezJurado            | 33 mins            | 01-04-22     | spanish  | Not rated yet              | 76 |
-| Wigetta                                   | Writtenby:Vegetta777,Willyrex                | Narratedby:ÁlexdePorrata                 | 3 hrs and 37 mins  | 05-04-22     | spanish  | Not rated yet              | 192|
-| Aru Shah and the Nectar of Immortality    | Writtenby:RoshaniChokshi                     | Narratedby:SoneelaNankani                | 11 hrs and 19 mins | 05-04-22     | English  | Not rated yet              | 821|
-| Barnabas der Wolkenschaufler              | Writtenby:SophieSchoenwald    | Narratedby:BerndReheuser           | 2 hrs and 56 mins  | 04-04-22     | german   | Not rated yet              | 200.00|
-| The Boy in the Post                       | Writtenby:HollyRivers                        | Narratedby:SusieTrayling                 | 6 hrs and 58 mins  | 01-04-22     | English  | Not rated yet              | 706|
-| Thornwood                                 | Writtenby:LeahCypess                         | Narratedby:JessicaAlmasy                 | 5 hrs and 41 mins  | 05-04-22     | English  | Not rated yet              | 904|
-| 7 histoires d'aventures !                 | Writtenby:BertrandFichou,NoraThullin | Narratedby:GuyChappelier,FrédéricSanchez | 43 mins | 11-02-22 | french   | Not rated yet              | 679|
-| Le Loup qui devenait chef de la forêt     | Writtenby:OrianneLallemand                   | Narratedby:WillProduction                | 9 mins             | 01-04-22     | french   | Not rated yet              | 112|
-<!-- End of table -->
+![Dataset Screenshot](https://photos.google.com/share/AF1QipMoqfcjpVMxSAnXXzDuGU-P4-2RqlSHjcWf4Laywb4zdDIbBZk6pQ40ntAAgDG92A/photo/AF1QipP71OSYbHxmog46vh8PNP_Tu6saT-Gl015LoyEW?key=T2Q5X0pGVERZdlFmQTgwb0M5QTNNVTZlLXRIbUtB)
 
 
 ## What are the data quality improvements needed?
