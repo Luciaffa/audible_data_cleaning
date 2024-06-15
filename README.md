@@ -50,7 +50,16 @@ For this data cleaning project focused on Audible.in data, I utilized the follow
 Based on a preliminary analysis there are some key problems and possible issues I must address, some of which can be seen in the data sample above.
 
 1. Check for duplicate and null/blank values.
-- Find duplicate values
+2. Remove the unnecessary "Writtenby:" from the 'Author' column.
+3. Remove the unncessary ¨Narratedby:¨ from the 'Narrator' column.
+4. Separate the author's name and last name from the 'Author' column.
+5. Change the releasedate column from a VARCHAR(MAX) data type to a DATE data type.
+6. Split the 'stars' values into two columns, "stars" and "Number of Ratings¨.
+7. Address the inconsistencies in the 'Language' column, as languages other than English are not capitalized.
+
+
+# Check for duplicate and null/blank values.
+1. Find duplicate values
 ```sql
 SELECT name, author, narrator, time, releasedate, language, stars, price, COUNT(*)
 FROM audible_uncleaned
@@ -59,7 +68,7 @@ HAVING COUNT(*) > 1;
  ```
 *Output: No duplicate values found*
 
-- Find NULL or blank values
+2. Find NULL or blank values
 ```sql
 SELECT *
 FROM audible_uncleaned
@@ -74,17 +83,17 @@ WHERE name IS NULL OR name = ''
  ```
 *Query returned 338 rows that had a NULL value in the 'price' column, I will not be deleting these rows since the NULL values can be handled during the analysis process.*
 
-2. Remove the unnecessary "Writtenby:" from the 'Author' column.
+# Remove the unnecessary "Writtenby:" from the 'Author' column.
 ```sql
 UPDATE audible_uncleaned
 SET author = SUBSTRING(author, 11, LEN(author) - 10)
 ```
-3. Remove the unncessary ¨Narratedby:¨ from the 'Narrator' column.
+# Remove the unncessary ¨Narratedby:¨ from the 'Narrator' column.
 ```sql
 UPDATE audible_uncleaned
 SET narrator = SUBSTRING(narrator, 12, LEN(narrator) - 11)
 ```
-4. Separate the author's name and last name from the 'Author' column.
+# Separate the author's name and last name from the 'Author' column.
    
 I used these queries to separate the first name and last name from the author and narrator columns, by introducing a space before each capital letter (not including the first letter of each name). In order to update the database, this step requieres the creation of a temporary table in order to populate it with a CTE that introduces the spaces before the capital letter and then drop that table.
 
@@ -184,7 +193,7 @@ JOIN
 
 DROP TABLE #TempFormattedNarrators;
 ```
-5. I changed the releasedate column from a VARCHAR(MAX) data type to a DATE data type. This modification allows for advanced analyses, such as time series analysis, date arithmatic and date-part analysis.
+# I changed the releasedate column from a VARCHAR(MAX) data type to a DATE data type. This modification allows for advanced analyses, such as time series analysis, date arithmatic and date-part analysis.
 ```sql
 UPDATE audible_uncleaned
 SET releasedate_new = CONVERT(DATE, releasedate, 3);
@@ -194,7 +203,7 @@ ALTER TABLE audible_uncleaned DROP COLUMN releasedate;
 EXEC sp_rename 'audible_uncleaned.releasedate_new', 'releasedate', 'COLUMN';
 ```
 
-6. Split the 'stars' values into two columns, "stars" and "Number of Ratings¨.
+# Split the 'stars' values into two columns, "stars" and "Number of Ratings¨.
 
 I fixed the stars column by separating the star rating and the number of ratings into their own columns. I dropped the string values to facilitate easier computational queries on the new columns.
 ```sql
@@ -217,4 +226,4 @@ ELSE NULL
 
 ALTER TABLE audible_uncleaned DROP COLUMN stars;
 ```
-8. Address the inconsistencies in the 'Language' column, as languages other than English are not capitalized. 
+# Address the inconsistencies in the 'Language' column, as languages other than English are not capitalized. 
