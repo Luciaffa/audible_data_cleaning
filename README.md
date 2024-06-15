@@ -58,7 +58,7 @@ Based on a preliminary analysis there are some key problems and possible issues 
 7. Address the inconsistencies in the 'Language' column, as languages other than English are not capitalized.
 
 
-#### Check for duplicate and null/blank values.
+### Check for duplicate and null/blank values.
 1. Find duplicate values
 ```sql
 SELECT name, author, narrator, time, releasedate, language, stars, price, COUNT(*)
@@ -83,17 +83,17 @@ WHERE name IS NULL OR name = ''
  ```
 *Query returned 338 rows that had a NULL value in the 'price' column, I will not be deleting these rows since the NULL values can be handled during the analysis process.*
 
-#### Remove the unnecessary "Writtenby:" from the 'Author' column.
+### Remove the unnecessary "Writtenby:" from the 'Author' column.
 ```sql
 UPDATE audible_uncleaned
 SET author = SUBSTRING(author, 11, LEN(author) - 10)
 ```
-#### Remove the unncessary ¨Narratedby:¨ from the 'Narrator' column.
+### Remove the unncessary ¨Narratedby:¨ from the 'Narrator' column.
 ```sql
 UPDATE audible_uncleaned
 SET narrator = SUBSTRING(narrator, 12, LEN(narrator) - 11)
 ```
-#### Separate the author's name and last name from the 'Author' column.
+### Separate the author's name and last name from the 'Author' column.
    
 I used these queries to separate the first name and last name from the author and narrator columns, by introducing a space before each capital letter (not including the first letter of each name). In order to update the database, this step requieres the creation of a temporary table in order to populate it with a CTE that introduces the spaces before the capital letter and then drop that table.
 
@@ -193,7 +193,7 @@ JOIN
 
 DROP TABLE #TempFormattedNarrators;
 ```
-#### Change the releasedate column from a VARCHAR(MAX) data type to a DATE data type. This modification allows for advanced analyses, such as time series analysis, date arithmatic and date-part analysis.
+### Change the releasedate column from a VARCHAR(MAX) data type to a DATE data type. This modification allows for advanced analyses, such as time series analysis, date arithmatic and date-part analysis.
 ```sql
 UPDATE audible_uncleaned
 SET releasedate_new = CONVERT(DATE, releasedate, 3);
@@ -203,7 +203,7 @@ ALTER TABLE audible_uncleaned DROP COLUMN releasedate;
 EXEC sp_rename 'audible_uncleaned.releasedate_new', 'releasedate', 'COLUMN';
 ```
 
-#### Split the 'stars' values into two columns, "stars" and "Number of Ratings.
+### Split the 'stars' values into two columns, "stars" and "Number of Ratings.
 
 I fixed the stars column by separating the star rating and the number of ratings into their own columns, in order to improve data clarity and facilitate easier analysis and data access. I dropped the string values to enable easier computational queries on the new columns.
 ```sql
@@ -226,7 +226,7 @@ ELSE NULL
 
 ALTER TABLE audible_uncleaned DROP COLUMN stars;
 ```
-#### Address the inconsistencies in the 'Language' column, as languages other than English are not capitalized. 
+### Address the inconsistencies in the 'Language' column, as languages other than English are not capitalized. 
 I chose to use a query that would capitalize the first letter of the whole column to inconsistencies, ensuring all language names are correctly formatted.
 ```sql
 UPDATE audible_uncleaned
