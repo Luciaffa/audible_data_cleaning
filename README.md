@@ -82,7 +82,7 @@ SET author = SUBSTRING(author, 11, LEN(author) - 10)
 UPDATE audible_uncleaned
 SET narrator = SUBSTRING(narrator, 12, LEN(narrator) - 11)
 ```
-### Separate the author's name and last name from the 'Author' column.
+### Separate the author's and the narrator's name and last name from the 'author' and 'narrator' column.
    
 I used these queries to separate the first name and last name from the author and narrator columns, by introducing a space before each capital letter (not including the first letter of each name). In order to update the database, this step requieres the creation of a temporary table in order to populate it with a CTE that introduces the spaces before the capital letter and then drop that table.
 
