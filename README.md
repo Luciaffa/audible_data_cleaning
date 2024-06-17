@@ -35,7 +35,8 @@ For this data cleaning project focused on Audible.in data, I utilized the follow
 
 *After*
 
-![datascreenshotafter](https://live.staticflickr.com/65535/53796292637_c9874bc258_b.jpg)
+![databaseafter](https://live.staticflickr.com/65535/53796302862_0b58bb7996_b.jpg)
+
 
 
 
