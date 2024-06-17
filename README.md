@@ -27,10 +27,15 @@ For this data cleaning project focused on Audible.in data, I utilized the follow
 | stars       | varchar    |
 | price       | float      |
 <!-- End of table -->
-**Dataset sample**
+**Dataset samples**
+
+*Before*
 
 ![datascreenshot](https://live.staticflickr.com/65535/53793789379_f174372d81_b.jpg)
 
+*After*
+
+![datascreenshotafter](https://live.staticflickr.com/65535/53796292637_c9874bc258_b.jpg)
 
 
 
@@ -43,7 +48,7 @@ Based on a preliminary analysis there are some key problems and possible issues 
 3. Remove the unncessary ¨Narratedby:¨ from the 'narrator' column.
 4. Separate the author's name and last name from the 'author' and 'narrator' columns.
 5. Change the releasedate column from a VARCHAR(MAX) data type to a DATE data type.
-6. Split the 'stars' values into two columns, "stars" and "number of ratings¨.
+6. Split the 'stars' values into two columns, "stars" and "number of ratings¨. Assign 'NULL' to 'Not yet rated' values.
 7. Address the inconsistencies in the 'language' column, as languages other than English are not capitalized.
 
 
@@ -194,7 +199,7 @@ EXEC sp_rename 'audible_uncleaned.releasedate_new', 'releasedate', 'COLUMN';
 
 ### Split the 'stars' values into two columns, "stars" and "Number of Ratings.
 
-I fixed the stars column by separating the star rating and the number of ratings into their own columns, in order to improve data clarity and facilitate easier analysis and data access. I dropped the string values to enable easier computational queries on the new columns.
+I fixed the stars column by separating the star rating and the number of ratings into their own columns, in order to improve data clarity and facilitate easier analysis and data access. I dropped the string values and assigned NULL to the 'Not yet rated' values in order to enable easier computational queries on the new columns.
 ```sql
 ALTER TABLE audible_uncleaned
 ADD star_rating FLOAT, number_of_ratings INT;
